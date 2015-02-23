@@ -1,11 +1,9 @@
 # mixpanel-ruby-batch
 
-Simple batch operations using mixpanel-ruby
+**mixpanel-ruby-batch** adds a simple interface for performing batch operations
+using the [mixpanel-ruby](https://github.com/mixpanel/mixpanel-ruby) gem.
 
-*mixpanel-ruby-batch* adds a simple interface for performing batch operations
-using the mixpanel-ruby[https://github.com/mixpanel/mixpanel-ruby] gem.
-
-mixpanel-ruby[https://github.com/mixpanel/mixpanel-ruby] already provides a BufferedConsumer class to
+[mixpanel-ruby](https://github.com/mixpanel/mixpanel-ruby) already provides a `BufferedConsumer` class to
 facilitate batch operations:
 
 ```ruby
@@ -27,7 +25,7 @@ ensure
 end
 ```
 
-*mixpanel-ruby-batch* adds a slightly higher-level API by adding the
+**mixpanel-ruby-batch** adds a slightly higher-level API by adding the
 `Mixpanel::Events#track_batch` and `Mixpanel::People#batch` methods.
 
 ## Installation
@@ -62,7 +60,7 @@ tracker.track_batch("12345", [
 }])
 
 
-# Send a generic batch update to \Mixpanel people analytics.
+# Send a generic batch update to Mixpanel people analytics.
 # The profile updates should be passed as an array of Hash objects.
 # Each has should have a single string key that is the distinct id
 # on which the perform the updates. The value should be a Hash with valid
@@ -99,5 +97,5 @@ pass as many messages to either message as memory will allow.
 
 For more information please visit:
 
-* Mixpanel Ruby API Integration page[https://mixpanel.com/help/reference/ruby#introduction]
-* mixpanel-ruby documentation[http://mixpanel.github.io/mixpanel-ruby/]
+* [Mixpanel Ruby API Integration page](https://mixpanel.com/help/reference/ruby#introduction)
+* [mixpanel-ruby documentation](http://mixpanel.github.io/mixpanel-ruby/)
