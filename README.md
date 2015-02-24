@@ -43,6 +43,7 @@ gem install mixpanel-ruby-batch
 # as a string) with the value a Hash of properties. Each string element
 # will be interpreted as an event name with no properties.
 
+require 'mixpanel-ruby'
 tracker = Mixpanel::Tracker.new
 
 tracker.track_batch("12345", [
@@ -68,6 +69,7 @@ tracker.track_batch("12345", [
 # for each operation as values. For details about the operations and their
 # expected data, see the documentation at # https://mixpanel.com/help/reference/http
 
+require 'mixpanel-ruby'
 tracker = Mixpanel::Tracker.new
 
 tracker.people.batch([
