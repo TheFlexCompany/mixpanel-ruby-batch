@@ -10,7 +10,7 @@ module MixpanelRubyBatch
       "$set", "$set_once", "$add", "$append", "$union", "$unset", "$delete"
     ]
     ADDITIVE_OPERATIONS = [
-      "$set", "$set_once", "$increment", "$append", "$union", "$track_charge"
+      "$set", "$set_once", "$append", "$union", "$track_charge"
     ]
 
     # Send a generic batch update to \Mixpanel people analytics.

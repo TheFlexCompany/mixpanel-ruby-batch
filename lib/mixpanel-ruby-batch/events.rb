@@ -26,7 +26,7 @@ module MixpanelRubyBatch
     #         "User Sign-up Cohort" => "July 2013"
     #       }
     #     }])
-    def track_batch(distinct_id, events, ip=nil)
+    def track_batch(distinct_id, events, ip=nil, endpoint=:event)
       data = events.map do |event_name_or_hash|
         event = event_name_or_hash
         properties = {}
@@ -55,9 +55,14 @@ module MixpanelRubyBatch
 
       data.each_slice(50) do |slice|
         message = { "data" => slice }
+        message.merge({"api_key" => ENV['MIXPANEL_API_KEY']}) if endpoint == :import
 
-        @sink.call(:event, message.to_json)
+        @sink.call(endpoint, message.to_json)
       end
+    end
+
+    def import_batch(distinct_id, events, ip=nil)
+      track_batch(distinct_id, events, ip=nil, :import)
     end
 
   end
