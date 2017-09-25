@@ -55,7 +55,9 @@ module MixpanelRubyBatch
 
       data.each_slice(50) do |slice|
         message = { "data" => slice }
-        message.merge({"api_key" => ENV['MIXPANEL_API_KEY']}) if endpoint == :import
+        if endpoint == :import
+          message["api_key"] = ENV['MIXPANEL_API_KEY']
+        end
 
         @sink.call(endpoint, message.to_json)
       end
